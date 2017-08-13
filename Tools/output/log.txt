@@ -1,0 +1,40 @@
+-----------------------Tinker patch begin-----------------------
+configuration: 
+oldApk:/Users/weaponzhi/AndroidStudioProjects/SmallPlugin/Tools/old.apk
+newApk:/Users/weaponzhi/AndroidStudioProjects/SmallPlugin/Tools/new.apk
+outputFolder:/Users/weaponzhi/AndroidStudioProjects/SmallPlugin/Tools/output
+isIgnoreWarning:false
+7-ZipPath:7za
+useSignAPk:true
+package meta fields: 
+filed name:patchMessage, filed value:classes.dex
+filed name:platform, filed value:all
+dex configs: 
+dexMode: jar
+dexPattern:classes.*\.dex
+dexPattern:assets/secondary-dex-.\.jar
+dex loader:com.tencent.tinker.loader.*
+dex loader:com.weaponzhi.imoocsmall.MyTinkerApplication
+lib configs: 
+libPattern:lib/armeabi/.*\.so
+resource configs: 
+resPattern:res/.*
+resPattern:assets/.*
+resPattern:resources\.arsc
+resPattern:AndroidManifest\.xml
+resIgnore change:assets/sample_meta\.txt
+largeModSize:100kb
+useApplyResource:false
+
+Analyze old and new apk files:
+old apk: old.apk, size=2581364, md5=96b83099b5f9c910bb5e50d60e5c6073
+new apk: new.apk, size=2581368, md5=adf9586871a58604f203171ab839ede8
+UnZipping apk to /Users/weaponzhi/AndroidStudioProjects/SmallPlugin/Tools/output/old
+UnZipping apk to /Users/weaponzhi/AndroidStudioProjects/SmallPlugin/Tools/output/new
+found modify resource: AndroidManifest.xml, but it is AndroidManifest.xml, just ignore!
+Check for loader classes in dex: classes.dex
+Found modify resource: res/layout/activity_main.xml
+No dexes were changed, nothing needs to be done next.
+Add Test resource file: assets/only_use_to_test_tinker_resource.txt
+Final normal zip resource: resources_out.zip, size=537191, md5=96ff2263d1a71c5c66e6fa3de5a9ed9e
+7a patch file failed, you should set the zipArtifact, or set the path directly
