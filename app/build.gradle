@@ -82,7 +82,7 @@ def getApplyResourceMappingPath() {
 def getTinkerIdValue() {
     return ext.tinkerID
 }
-
+//Tinker和Small集成，只能更新宿主，如果需要修复插件，需要依赖一个lib,然后在每个插件中集成Tinker
 if (buildWithTinker()) {
     //启用Tinker
     apply plugin: 'com.tencent.tinker.patch'
@@ -90,7 +90,7 @@ if (buildWithTinker()) {
     tinkerPatch {
         oldApk = getOldApkPath()//指定old apk 文件路径
 
-        ignoreWarning = false  //是否要忽略Tinker的警告，如果有警告则终止patch文件的生成
+        ignoreWarning = true  //是否要忽略Tinker的警告，如果有警告则终止patch文件的生成
 
         useSign = true      //强制patch文件也使用签名
 
